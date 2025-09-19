@@ -1,0 +1,30 @@
+disabled = false
+languageCode = "en"
+languageName = "English"
+weight = 1
+title = "Blowfish"
+
+[params]
+  displayName = "EN"
+  isoCode = "en"
+  rtl = false
+  dateFormat = "2 January 2006"
+  # logo = "img/logo.png"
+  # secondaryLogo = "img/secondary-logo.png"
+  # description = "Aeropolitik"
+  # copyright = "All rights reserved."
+
+# [params.author]
+#   name = "Ozycaevias"
+#   email = "author@aeropolitik.org"
+#   image = "img/blowfish_logo.png"
+#   imageQuality = 96
+#   headline = "Aeropolitik Author"
+#   bio = "A little bit about you"
+#   links = [
+#     { email = "mailto:author@aeropolitik.org" }
+#     { bluesky = "https://bsky.app/profile/username" }
+#     { github = "https://github.com/username" }
+#     { signal = "https://signal.me/#eu/userid" }
+#     { tumblr = "https://username.tumblr.com" }
+#   ]
