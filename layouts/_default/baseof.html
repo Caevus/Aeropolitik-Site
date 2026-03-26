@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ block "title" . }}{{ .Site.Title }}{{ end }}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Platypi:ital,wght@0,300..800;1,300..800&family=Faculty+Glyphic&family=Raleway:ital,wght@0,100..900;1,100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet">
+    <link rel="stylesheet" href="/css/global.css">
+    {{ block "extra_css" . }}{{ end }}
+  </head>
+
+  <body>
+    <a id="fun-enabled" class="fun-toggle" href="#fun-enabled">Click me to enable fun. ;)</a>
+
+    <!-- Debug stuff. -->
+    <div class="debug--screen-size" id="width-1100">Full Screen (1100 min)</div>
+    <div class="debug--screen-size" id="width-975">Large Screen (975 min)</div>
+    <div class="debug--screen-size" id="width-820">Medium Screen (820 min)</div>
+    <div class="debug--screen-size" id="width-600">Small Screen (600 min)</div>
+
+    <div class="a11y">Hello Screen Reader folks! If you hear this, shoot me an email to <a
+        href="mailto:author@aeropolitik.org">author@aeropolitik.org</a>!!</div>
+
+    {{ block "main" . }}{{ end }}
+
+    <footer>
+      <p class="credit-text">A site by Ozycaevias. Check out these other cool sites:</p>
+      <div class="sites-container"></div>
+    </footer>
+  </body>
+
+</html>

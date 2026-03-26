@@ -1,0 +1,36 @@
+{{ define "title" }}{{ .Params.title | default .Title }} | {{ .Site.Title }}{{ end }}
+
+{{ define "extra_css" }}
+<link
+  href="https://fonts.googleapis.com/css2?family=Asul:wght@400;700&family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Homemade+Apple&display=swap"
+  rel="stylesheet">
+<link rel="stylesheet" href="/css/personnel-file.css">
+{{ end }}
+
+{{ define "main" }}
+<div class="doc-container">
+  <header>
+    {{- if .Params.organizationName }}
+    <div class="organization-name">
+      <p>{{ .Params.organizationName }}</p>
+    </div>
+    {{- end }}
+    {{- if .Params.portrait }}
+    <div class="attached-image">
+      <img src="{{ .Params.portrait }}" alt="{{ .Params.portraitAlt }}">
+      {{- if .Params.portraitCredit }}
+      <p>{{ .Params.portraitCredit }}</p>
+      {{- end }}
+    </div>
+    {{- end }}
+    {{- if .Title }}
+    <div class="doc-header">
+      <h1>{{ .Title }}</h1>
+    </div>
+    {{- end }}
+  </header>
+  <main>
+    {{ .Content }}
+  </main>
+</div>
+{{ end }}

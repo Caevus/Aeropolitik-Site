@@ -1,0 +1,57 @@
+{{ define "title" }}{{ .Params.title | default .Title }} | {{ .Site.Title }}{{ end }}
+
+{{ define "extra_css" }}
+<link
+  href="https://fonts.googleapis.com/css2?family=Asul:wght@400;700&family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Homemade+Apple&display=swap"
+  rel="stylesheet">
+<link rel="stylesheet" href="/css/personnel-file.css">
+{{ end }}
+
+{{ define "main" }}
+<div class="doc-container">
+  <!-- Header -->
+  <header>
+    <div class="document-number"></div>
+
+    <div class="organization-name">
+      <p>{{ .Params.organizationName }}</p>
+    </div>
+
+    {{- if .Params.portrait }}
+    <div class="attached-image">
+      <img src="{{ .Params.portrait }}" alt="{{ .Params.portraitAlt }}">
+      <p>{{ .Params.portraitCredit }}</p>
+    </div>
+    {{- end }}
+
+    <div class="doc-header">
+      <h1>{{ .Params.docTitle }}<br />{{ .Params.docSubtitle }}</h1>
+    </div>
+  </header>
+
+  <main>
+    <div class="doc-content">
+      <div class="doc-section" id="General-Information">
+
+        {{ range $i := seq 1 21 }}
+        {{- $key := printf "item%d" $i }}
+        {{- $label := index $.Params (printf "label%d" $i) }}
+        {{- $value := index $.Params $key }}
+        {{- if $label }}
+        <div class="doc-item" id="Item-{{ $i }}">
+          <span class="doc-item-label">{{ $i }}. {{ $label }}</span><br />
+          <span class="doc-item-value">{{ $value | default "--" }}</span>
+        </div>
+        {{- end }}
+        {{ end }}
+
+      </div>
+    </div>
+
+    <div class="doc-section-header">
+      <h2>Military History</h2>
+    </div>
+    <div class="doc-section"></div>
+  </main>
+</div>
+{{ end }}

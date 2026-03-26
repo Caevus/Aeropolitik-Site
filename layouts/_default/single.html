@@ -1,0 +1,25 @@
+{{ define "title" }}{{ .Title }} | {{ .Site.Title }}{{ end }}
+{{ define "main" }}
+<div class="container">
+  <header>
+    <div class="title-container">
+      <h1><span class="sub">THE</span> AEROPOLITIK</h1>
+    </div>
+    <nav class="paper-header-bottom">
+      <a href="/">← Back to the paper</a>
+    </nav>
+  </header>
+  <main>
+    <div class="article-grid">
+      <article class="article {{ .Params.articleClass }}" style="grid-column: 1 / -1;">
+        <span class="clickable" style="pointer-events: none;">
+          <h2>{{ .Title }}</h2>
+          {{ with .Params.byline }}<div class="byline">{{ . }}</div>{{ end }}
+          {{ with .Params.image }}<img src="{{ . }}" alt="{{ $.Params.imageAlt }}">{{ end }}
+          <div class="content">{{ .Content }}</div>
+        </span>
+      </article>
+    </div>
+  </main>
+</div>
+{{ end }}

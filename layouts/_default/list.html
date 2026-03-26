@@ -1,0 +1,22 @@
+{{ define "title" }}{{ .Title }} | {{ .Site.Title }}{{ end }}
+{{ define "main" }}
+<div class="container">
+  <header>
+    <div class="title-container">
+      <h1><span class="sub">THE</span> AEROPOLITIK</h1>
+    </div>
+    <nav class="paper-header-bottom">
+      <a href="/">← Back to the paper</a>
+    </nav>
+  </header>
+  <main>
+    <div style="padding: 2rem;">
+      <h2 style="font-family: Raleway, sans-serif;">{{ .Title }}</h2>
+      {{ .Content }}
+      {{ range .Pages }}
+      <p><a href="{{ .RelPermalink }}">{{ .Title }}</a></p>
+      {{ end }}
+    </div>
+  </main>
+</div>
+{{ end }}

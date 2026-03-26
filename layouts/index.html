@@ -1,0 +1,72 @@
+{{ define "title" }}{{ .Site.Title }}{{ end }}
+
+{{ define "main" }}
+<div class="container">
+
+  <!-- Header -->
+  <header>
+    <div class="paper-header-top">
+      <div class="header-notif">
+        <span class="header-notif-title">NOTICE</span><br />
+        This site is a work in progress, please forgive the incompleteness!
+      </div>
+      <div class="title-container">
+        <h1><span class="sub">THE</span> AEROPOLITIK</h1>
+      </div>
+      <a class="header-notif" href="https://bsky.app/profile/aeropolitik.org">
+        <span class="header-notif-title">WEATHER</span><br />
+        Blue Sky ahead! Follow @Aeropolitik for more.
+      </a>
+    </div>
+    <nav class="paper-header-bottom">
+      <div>Edition No. 19</div>
+      <div class="divider">|</div>
+      <div>May 19, 1938</div>
+      <div class="divider">|</div>
+      <div>Price: 5¢</div>
+    </nav>
+  </header>
+
+  <main>
+    <div class="article-grid">
+
+      {{ $articles := where .Site.RegularPages "Section" "articles" }}
+      {{ range sort $articles "Weight" }}
+
+        {{- if .Params.isAd }}
+        <article class="article ad">
+          {{ .Content }}
+        </article>
+
+        {{- else }}
+        <article class="article {{ .Params.articleClass }}">
+          {{- if .Params.link }}
+          <a href="{{ .Params.link }}">
+          {{- end }}
+            <span class="clickable">
+              <h2>{{ .Params.title }}</h2>
+              {{- if .Params.byline }}
+              <div class="byline">{{ .Params.byline }}</div>
+              {{- end }}
+              {{- if .Params.image }}
+              <img src="{{ .Params.image }}" alt="{{ .Params.imageAlt }}">
+              {{- end }}
+              <div class="content">
+                {{ .Content }}
+              </div>
+            </span>
+          {{- if .Params.link }}
+          </a>
+          {{- end }}
+        </article>
+        {{- end }}
+
+      {{ end }}
+
+    </div>
+
+    <!-- PAPER FOOTER -->
+    <div class="paper-footer"></div>
+  </main>
+</div>
+{{ end }}
